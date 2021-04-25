@@ -21,8 +21,8 @@ namespace Baza
         private SqlDataAdapter sqlDataAdapter = null;
         private DataSet dataSet = null;
         private bool newRowAdding = false;
-       
-        
+
+
 
 
         public Form1()
