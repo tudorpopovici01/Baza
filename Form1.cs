@@ -256,17 +256,22 @@ namespace Baza
             exApp.Workbooks.Add();
             Excel.Worksheet wsh = (Excel.Worksheet)exApp.ActiveSheet;
             int i, j;
+
             for (i=0; i<= dataGridView1.RowCount -2;i++)
             {
-                for (j=0; j <= dataGridView1.ColumnCount -1;j++)
+                for (j=0; j <= dataGridView1.ColumnCount -2;j++)
                 {
+                    if (i == 0)
+                    {
+                        wsh.Cells[i + 1, j + 1] = dataGridView1.Columns[j].HeaderText;
+                    }
                     if (j == 2) 
                     {
-                        wsh.Cells[i + 1, j].NumberFormat = "0";
+                        wsh.Cells[i + 2, j].NumberFormat = "0";
                     }
 
                   
-                    wsh.Cells[i + 1, j + 1] = dataGridView1[j, i].Value.ToString();
+                    wsh.Cells[i + 2, j + 1] = dataGridView1[j, i].Value.ToString();
                 }
             }
             exApp.Visible = true;
